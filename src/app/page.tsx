@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { env } from "@/env";
 
 export default function Home() {
