@@ -4,11 +4,8 @@ services:
     container_name: db
     ports:
       - 5432:5432
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: default
-      PGDATA: /data/postgres
+    env_file:
+      docker.env
     volumes:
       - postgres:/data/postgres
 

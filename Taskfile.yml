@@ -1,0 +1,26 @@
+version: '3'
+
+dotenv:
+  - ".env"
+  - "docker.env"
+
+tasks:
+  default:
+    aliases:
+      - list
+    desc: List all tasks
+    cmd: task -l
+
+  up:db:
+    desc: Start DB container
+    cmd: docker compose up -d
+    silent: true
+  
+  down:db:
+    desc: Stop DB container
+    cmd: docker compose down
+    silent: true
+  
+  up:shell:
+    desc: Connect with DB
+    cmd: docker compose exec -it db psql -U $POSTGRES_USER $POSTGRES_DB
