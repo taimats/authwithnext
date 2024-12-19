@@ -24,3 +24,15 @@ tasks:
   up:shell:
     desc: Connect with DB
     cmd: docker compose exec -it db psql -U $POSTGRES_USER $POSTGRES_DB
+
+  db:gen:
+    desc: Generate a migration file
+    cmd: npx drizzle-kit generate --config=drizzle.config.ts
+  
+  db:mig:
+    desc: Execute migration
+    cmd: npx drizzle-kit migrate --config=drizzle.config.ts
+  
+  db:sto:
+    desc: Show drizzle studio
+    cmd: npx drizzle-kit studio --config=drizzle.config.ts
